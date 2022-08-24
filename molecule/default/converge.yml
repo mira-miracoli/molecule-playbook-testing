@@ -10,3 +10,4 @@
       when: ansible_os_family == 'Debian'
 
 - import_playbook: ../../main.yml
+- import_playbook: ../../gxserver.yml

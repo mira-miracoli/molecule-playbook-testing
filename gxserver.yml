@@ -1,5 +1,5 @@
 ---
-- name: galaxy
+- name: Galaxy
   hosts: all
   become: true
   become_user: root

@@ -20,6 +20,6 @@ provisioner:
   name: ansible
   inventory:
     links:
-      group_vars: ../../group_vars/galaxyservers.yml
+      group_vars: ../../group_vars/
 verifier:
   name: ansible

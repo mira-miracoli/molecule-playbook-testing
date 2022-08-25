@@ -6,6 +6,8 @@ name: CI
     branches:
       - master
 
+  workflow_dispatch:
+
 jobs:
 
   test:

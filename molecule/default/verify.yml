@@ -3,7 +3,7 @@
   hosts: all
 
   tasks:
-    - name: Verify Apache is serving web requests.
+    - name: Verify Galaxy is serving web requests.
       uri:
-        url: http://localhost/
+        url: http://localhost:8080
         status_code: 200

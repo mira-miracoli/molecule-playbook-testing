@@ -1,6 +1,7 @@
 ---
 dependency:
   name: galaxy
+  requirements_file: requirements.yml
 driver:
   name: docker
 lint: |
@@ -19,6 +20,6 @@ provisioner:
   name: ansible
   inventory:
     links:
-      group_vars: ../../group_vars/
+      group_vars: ../../group_vars/galaxyservers.yml
 verifier:
   name: ansible

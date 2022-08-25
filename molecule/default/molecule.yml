@@ -19,7 +19,35 @@ platforms:
 provisioner:
   name: ansible
   inventory:
-    links:
-      group_vars: ../../group_vars/
+    group_vars: 
+      # Python 3 support
+      pip_virtualenv_command: /usr/bin/python3 -m virtualenv # usegalaxy_eu.certbot, usegalaxy_eu.tiaas2, galaxyproject.galaxy
+      certbot_virtualenv_package_name: python3-virtualenv    # usegalaxy_eu.certbot
+      pip_package: python3-pip                               # geerlingguy.pip
+
+      # Galaxy
+      galaxy_create_user: true
+      galaxy_separate_privileges: true
+      galaxy_manage_paths: true
+      galaxy_layout: root-dir
+      galaxy_root: /srv/galaxy
+      galaxy_server_dir: "{{ galaxy_root }}"
+      galaxy_user: {name: galaxy, shell: /bin/bash}
+      galaxy_commit_id: release_22.05
+      galaxy_force_checkout: true
+      miniconda_prefix: "{{ galaxy_tool_dependency_dir }}/_conda"
+      miniconda_version: 4.7.12
+      miniconda_manage_dependencies: false
+
+      galaxy_config:
+        galaxy:
+          brand: "🧬🔬🚀"
+          admin_users: admin@example.org
+          database_connection: "sqlite:///./database/universe.sqlite?isolation_level=IMMEDIATE"
+          file_path: /data
+          check_migrate_tools: false
+          tool_data_path: "{{ galaxy_mutable_data_dir }}/tool-data"
+          object_store_store_by: uuid
+          id_secret: "{{ vault_id_secret }}"
 verifier:
   name: ansible
